@@ -1,6 +1,8 @@
 #!python3
 
-import demo_requests, bs4
+import bs4
+import demo_requests
+
 bcontent = bs4.BeautifulSoup(demo_requests.getByUrl('https://www.jetbrains.com/help/pycharm/installing-uninstalling-and-upgrading-packages.html'))
 print(str(type(bcontent)))
 print('-----------------------------------------------')
