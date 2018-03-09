@@ -44,8 +44,8 @@ print('---------------------------------------------')
 
 def getById(i):
     if i==1:
-        print 'ok'
+        print('ok')
     elif i==2:
-        print '2 ok'
+        print('2 ok')
     else:
-        print 'not ok'
+        print('not ok')

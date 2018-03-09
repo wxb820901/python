@@ -1,14 +1,16 @@
 import csv
-import demo_os
+# import demo_os
 import json
 import os
+
+from base.demo.demo_os import touch
 
 if not os.path.exists(os.getcwd()+os.path.sep+'csvjsonfolder'):
     os.makedirs(os.getcwd() + os.path.sep + 'csvjsonfolder')   #mkdir
 
 
 if not os.path.exists(os.getcwd()+os.path.sep+"csvjsonfolder"+os.path.sep+"csv.txt"):
-    demo_os.touch(os.getcwd() + os.path.sep + "csvjsonfolder" + os.path.sep + "csv.txt",
+    touch(os.getcwd() + os.path.sep + "csvjsonfolder" + os.path.sep + "csv.txt",
                   "1,2,3\n4,5,6\n7,8,9")
 
 

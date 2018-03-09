@@ -1,6 +1,8 @@
-import demo_os
+# import demo_os
 import os
 import zipfile
+
+from base.demo import demo_os
 
 if not os.path.exists(os.getcwd()+os.path.sep+'zipFolder'):
     os.makedirs(os.getcwd() + os.path.sep + 'zipFolder')   #mkdir
