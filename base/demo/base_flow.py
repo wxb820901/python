@@ -28,4 +28,5 @@ print('-----------------while pass---------------------')
 while True:
     print("while True:")
     pass
+    print("after pass")
     break
