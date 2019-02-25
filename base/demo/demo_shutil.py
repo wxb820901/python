@@ -1,4 +1,6 @@
-import shutil, os
+import os
+import shutil
+
 if not os.path.exists(os.getcwd()+os.path.sep+'shutilFolder'):
     os.makedirs(os.getcwd() + os.path.sep + 'shutilFolder')   #mkdir
     # os.rmdir(os.getcwd()+os.path.sep+'ostestfolder')         #rmdir

@@ -1,6 +1,8 @@
 #!python3
 
-import webbrowser, requests,os
+import os
+import requests
+
 if not os.path.exists(os.getcwd()+os.path.sep+'requestsFolder'):
     os.makedirs(os.getcwd() + os.path.sep + 'requestsFolder')   #mkdir
     # os.rmdir(os.getcwd()+os.path.sep+'ostestfolder')         #rmdir

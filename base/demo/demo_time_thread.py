@@ -1,4 +1,7 @@
-import time, datetime, threading
+import datetime
+import threading
+import time
+
 print("time.time() ==> "+ str(time.time()))
 time.sleep(1)
 print("after 1 seconds "+str(time.time()))

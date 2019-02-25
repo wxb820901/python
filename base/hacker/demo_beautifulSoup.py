@@ -1,9 +1,14 @@
 #!python3
 
 import bs4
-import demo_requests
+import requests
 
-bcontent = bs4.BeautifulSoup(demo_requests.getByUrl('https://www.jetbrains.com/help/pycharm/installing-uninstalling-and-upgrading-packages.html'))
+def getByUrl(url):
+    res = requests.get(url)
+    res.raise_for_status()
+    return res.text
+
+bcontent = bs4.BeautifulSoup(getByUrl('https://www.jetbrains.com/help/pycharm/installing-uninstalling-and-upgrading-packages.html'))
 print(str(type(bcontent)))
 print('-----------------------------------------------')
 print(str(bcontent.select('p')))
