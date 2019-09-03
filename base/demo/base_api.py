@@ -1,4 +1,5 @@
 if __name__=='__main__':
+    print('1'+'2')
     x = 5
     y = "John"
     print(x)  #5
