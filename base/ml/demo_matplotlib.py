@@ -1,70 +1,49 @@
 #!python3
 
 import numpy as np
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 
-
-# x = np.linspace(0, 10, 100)
-# fig = plt.figure()
-# plt.subplot(2, 1, 1)
-# plt.plot(x, np.sin(x), '-')
-# plt.subplot(2, 1, 2)
-# plt.plot(x, np.sin(x), '-')
-# plt.plot(x, np.cos(x), '--')
-# plt.show()
+def show(x, y):
+    plt.plot(x, y)
+    plt.show()
 
 
-# fig = plt.figure()
-# ax = plt.axes()
-# x = np.linspace(0, 10, 100)
-# ax.plot(x, np.sin(x))
-# plt.show()
+def show2(x, y1, y2):
+    plt.plot(x, y1, 'ro', x, y2, 'g--')
+    plt.show()
 
 
-
-# x = np.linspace(0, 10, 100)
-# fig = plt.figure()
-# plt.style.use('seaborn-whitegrid')
-# plt.plot(x, np.sin(x - 0), color='blue')
-# plt.plot(x, np.sin(x - 1), color='g')
-# plt.plot(x, np.sin(x - 2), color='0.75')
-# plt.plot(x, np.sin(x - 3), color='#FFDD44')
-# plt.plot(x, np.sin(x - 4), color=(1.0, 0.2, 0.3))
-# plt.plot(x, np.sin(x - 5), color='chartreuse')
-# plt.plot(x, x + 0, linestyle='solid')
-# plt.plot(x, x + 1, linestyle='dashed')
-# plt.plot(x, x + 2, linestyle='dashdot')
-# plt.plot(x, x + 3, linestyle='dotted')
-# # plt.plot(x, x + 4, '-')
-# # plt.plot(x, x + 5, '__')
-# # plt.plot(x, x + 6, '_.')
-# plt.plot(x, x + 7, linestyle=':')
-# plt.xlim(0, )
-# plt.ylim(-1, )
-# plt.show()
+def show_sub2(x, y1, y2):
+    plt.subplot(211)
+    plt.plot(x, y1)
+    plt.subplot(212)
+    plt.plot(x, y2)
+    plt.show()
 
 
-# x = np.linspace(0, 10, 30)
-# y = np.sin(x)
-# plt.plot(x, y, 'o', color='black')
-# plt.show()
-
-plt.plot(1, 1, 'o', 'marker="o"'.format('o'))
-plt.plot(1, 2, 'x', 'marker="x"'.format('o'))
-plt.plot(2, 1, '+', 'marker="+"'.format('o'))
-plt.plot(2, 2, 'v', 'marker="v"'.format('o'))
-plt.legend(numpoints=1)
-plt.xlim(0, 10)
-plt.ylim(0, 10)
-plt.show()
-
-# rng = np.random.RandomState(0)
-# for marker in ['o', '.', ',', 'x', '+', 'v', '^', '<', '>', 's', 'd']:
-#     plt.plot(rng.rand(5), rng.rand(5), marker, label="marker='{0}'".format(marker))
-#     plt.legend(numpoints=1)
-#     plt.xlim(0, 1.8)
-# plt.show()
+def show_sub3(x, y1, y2, y3):
+    plt.subplot(311)
+    plt.plot(x, y1)
+    plt.subplot(312)
+    plt.plot(x, y2)
+    plt.subplot(313)
+    plt.plot(x, y3)
+    plt.show()
 
 
+if __name__ == '__main__':
+    x = np.linspace(-10, +10)
+
+    func = np.poly1d(np.array([1, 2, 3, 4]).astype(float))  # np.poly1d 创建多项式
+    func_deriv1 = func.deriv(m=1)  # 1阶导数
+    func_deriv2 = func.deriv(m=2)  # 1阶导数
+
+    y = func(x)
+    y_deriv1 = func_deriv1(x)
+    y_deriv2 = func_deriv2(x)
+
+    # show(x, y_deriv1)
+    # s2(x, y, y_deriv)
+    # show_sub2(x, y, y_deriv)
+    show_sub3(x, y, y_deriv1, y_deriv2)
