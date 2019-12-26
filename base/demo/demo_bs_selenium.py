@@ -2,7 +2,7 @@ if __name__ == '__main__':
     from bs4 import BeautifulSoup
     from selenium import webdriver
     import requests
-    import urllib3.parse as urlparse
+    from urllib.parse import urlparse
 
 
     pages = []
@@ -16,7 +16,8 @@ if __name__ == '__main__':
         pages.append(url)
 
         try:
-            driver = webdriver.Chrome('C:/Users/bill_wang/chromedriver_win32/chromedriver')
+            # driver = webdriver.Chrome('C:/Users/bill_wang/chromedriver_win32/chromedriver')
+            driver = webdriver.Chrome('/Users/xiaobingwang/Downloads/chromedriver')
             driver.implicitly_wait(30)
             if requests.get(url).status_code == 200:
                 driver.get(url)
@@ -24,7 +25,7 @@ if __name__ == '__main__':
                 # printAllLink(bsObj)
                 for link in bsObj.find_all('a'):
                     innerUrl = urlparse(link.get("href"))
-                    print("uri ==> " + url, " innerUrl ==>" + innerUrl)
+                    print("uri ==> " + str(url), " innerUrl ==>" + str(innerUrl))
                     if innerUrl.geturl().startswith('http'):
                         loopSingleSite(innerUrl.geturl())
                     elif innerUrl.geturl().startswith('//'):
@@ -32,8 +33,8 @@ if __name__ == '__main__':
                     else:
                         return
 
-        # except BaseException as e:
-        #     print("error: ", str(e))
+        except BaseException as e:
+            print("error: ", str(e))
         finally:
             driver.close()
 
